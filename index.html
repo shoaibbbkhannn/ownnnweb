@@ -1,0 +1,192 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Shreeya ❤️</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#ff6b9d,#ffb6c1,#ffd6a5);
+overflow:hidden;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+color:white;
+}
+
+.container{
+max-width:800px;
+padding:20px;
+}
+
+.hidden{
+display:none;
+}
+
+button{
+padding:18px 35px;
+font-size:22px;
+border:none;
+border-radius:50px;
+background:white;
+color:#ff4f81;
+cursor:pointer;
+font-weight:bold;
+}
+
+h1{
+font-size:55px;
+margin-bottom:20px;
+}
+
+.message{
+background:rgba(255,255,255,0.2);
+padding:25px;
+border-radius:20px;
+line-height:1.8;
+font-size:20px;
+}
+
+.balloon{
+position:absolute;
+bottom:-100px;
+font-size:40px;
+animation:float linear infinite;
+}
+
+@keyframes float{
+from{
+transform:translateY(0);
+}
+to{
+transform:translateY(-120vh);
+}
+}
+
+.star{
+position:absolute;
+width:3px;
+height:3px;
+background:white;
+border-radius:50%;
+animation:twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+from{opacity:.2;}
+to{opacity:1;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div id="start">
+
+<h1>🎁 A Surprise For Shreeya 🎁</h1>
+
+<p style="margin-bottom:30px;font-size:22px;">
+Only the birthday girl is allowed to click this 😄
+</p>
+
+<button onclick="openGift()">
+Open Birthday Surprise ❤️
+</button>
+
+</div>
+
+<div id="birthday" class="hidden">
+
+<h1>🎂 Happy Birthday Shreeya 🎂</h1>
+
+<div class="message">
+
+<p>
+Dear Shreeya ❤️,
+</p>
+
+<p>
+Congratulations! You have successfully leveled up another year! 🎉😂
+</p>
+
+<p>
+Thank you for being funny, caring, lovable, and for making life so much brighter.
+Whether we're laughing at silly things or creating unforgettable memories, every moment is special.
+</p>
+
+<p>
+May your day be filled with happiness, cake, gifts, laughter, and all the things you love. 🎈🎂🎁
+</p>
+
+<p>
+Stay amazing, stay awesome, and never stop being the wonderful person you are.
+</p>
+
+<h2>✨ Happy Birthday Bestie ✨</h2>
+
+<p>
+With lots of love ❤️
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+function openGift(){
+
+document.getElementById("start").style.display="none";
+document.getElementById("birthday").style.display="block";
+
+for(let i=0;i<30;i++){
+let b=document.createElement("div");
+b.className="balloon";
+b.innerHTML=["🎈","🎉","🎊","💖"][Math.floor(Math.random()*4)];
+b.style.left=Math.random()*100+"vw";
+b.style.animationDuration=(5+Math.random()*5)+"s";
+document.body.appendChild(b);
+}
+
+for(let i=0;i<150;i++){
+let star=document.createElement("div");
+star.className="star";
+star.style.left=Math.random()*100+"vw";
+star.style.top=Math.random()*100+"vh";
+document.body.appendChild(star);
+}
+
+for(let i=0;i<100;i++){
+let confetti=document.createElement("div");
+confetti.innerHTML="🎉";
+confetti.style.position="absolute";
+confetti.style.left=Math.random()*100+"vw";
+confetti.style.top="-20px";
+confetti.style.fontSize="20px";
+document.body.appendChild(confetti);
+
+setTimeout(()=>{
+confetti.style.transition="4s linear";
+confetti.style.top="100vh";
+},50);
+}
+}
+</script>
+
+</body>
+</html>
+```
