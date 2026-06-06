@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Shreeya 🎂</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+    text-align:center;
+    overflow-x:hidden;
+}
+
+.page{
+    display:none;
+    padding:30px;
+}
+
+.active{
+    display:block;
+}
+
+h1{
+    color:white;
+    text-shadow:2px 2px 5px #ff1493;
+}
+
+button{
+    padding:15px 30px;
+    font-size:18px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    background:#ff1493;
+    color:white;
+    margin-top:20px;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.1);
+}
+
+#cake{
+    margin:30px auto;
+    width:220px;
+}
+
+.cake-base{
+    height:120px;
+    background:#ff69b4;
+    border-radius:10px;
+    position:relative;
+}
+
+.candles{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    margin-bottom:10px;
+}
+
+.candle{
+    width:8px;
+    height:30px;
+    background:white;
+    margin:2px;
+    position:relative;
+}
+
+.candle::before{
+    content:"🔥";
+    position:absolute;
+    top:-18px;
+    left:-4px;
+}
+
+.cut{
+    transform:rotate(-5deg);
+    opacity:0.7;
+}
+
+.note{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    max-width:600px;
+    margin:auto;
+    box-shadow:0 0 15px rgba(0,0,0,0.2);
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div id="page1" class="page active">
+    <h1>🎉 Happy Birthday Shreeya 🎉</h1>
+    <p>A surprise is waiting for you...</p>
+    <button onclick="openSurprise()">Open Birthday Surprise 🎁</button>
+</div>
+
+<!-- PAGE 2 -->
+<div id="page2" class="page">
+    <h1>Before we start...</h1>
+    <p>How old are you today? 🎂</p>
+
+    <input type="number" id="age" placeholder="Enter your age"
+    style="padding:10px;font-size:18px;border-radius:10px;border:none;">
+
+    <br>
+    <button onclick="makeCake()">Create My Cake 🎂</button>
+
+    <div id="cakeArea"></div>
+</div>
+
+<!-- PAGE 3 -->
+<div id="page3" class="page">
+    <h1>🎀 Your Birthday Gift 🎀</h1>
+
+    <div class="note">
+        <h2>Dear Shreeya ❤️</h2>
+
+        <p>
+        Happy Birthday to the funniest, sweetest and most amazing best friend!
+        Thank you for all the laughs, memories and crazy moments we share.
+        Life becomes brighter whenever you're around.
+        </p>
+
+        <p>
+        May your day be filled with happiness, love, success and lots of cake.
+        Keep smiling because your smile makes everyone's day better.
+        </p>
+
+        <p>
+        💖 You're truly one of a kind. 💖
+        </p>
+
+        <h3>Happy Birthday, Bestie! 🎉🎂✨</h3>
+    </div>
+</div>
+
+<script>
+function openSurprise(){
+    document.getElementById("page1").classList.remove("active");
+    document.getElementById("page2").classList.add("active");
+}
+
+function makeCake(){
+    let age = document.getElementById("age").value;
+
+    if(age <= 0){
+        alert("Please enter your age!");
+        return;
+    }
+
+    let candles = "";
+
+    let maxCandles = Math.min(age,30);
+
+    for(let i=0;i<maxCandles;i++){
+        candles += '<div class="candle"></div>';
+    }
+
+    document.getElementById("cakeArea").innerHTML = `
+        <h2>Your ${age}th Birthday Cake 🎂</h2>
+
+        <div id="cake">
+            <div class="candles">${candles}</div>
+            <div class="cake-base"></div>
+        </div>
+
+        <button onclick="cutCake()">Cut the Cake 🔪</button>
+    `;
+}
+
+function cutCake(){
+    document.querySelector(".cake-base").classList.add("cut");
+
+    setTimeout(()=>{
+        alert("🎉 Happy Birthday Shreeya! 🎉");
+        document.getElementById("page2").classList.remove("active");
+        document.getElementById("page3").classList.add("active");
+    },1000);
+}
+</script>
+
+</body>
+</html>
